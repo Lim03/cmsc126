@@ -1,0 +1,383 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap');
+
+/* sets default properties for all sections */
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+	text-decoration: none;
+}
+body{
+	background-color: #FFEBE8;
+}
+
+/* CUSTOM SCROLL BAR */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* NAVIGATION BAR */
+/* the style of... */
+/* ...the navigation bar */
+.max-width{
+    max-width: 1300px;
+    padding: 0 80px;
+    margin: auto;
+}
+.navbar{
+    position: fixed;
+    width: 100%;
+    z-index: 9998;
+    padding: 30px 0;
+    font-family: 'Roboto Condensed', sans-serif;
+    transition: all 0.3s ease;
+}
+/* ...the navigation bar when scrolled down*/
+.navbar.sticky{
+    padding: 15px 0;
+    background: #262626;
+}
+/* ...the maximum width of the navigation bar */
+.navbar .max-width{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+/* ...the logo of the website */
+.navbar .logo a{
+    color: #2077EC;
+    font-family: 'Lobster', sans-serif;
+    font-size: 35px;
+    font-weight: 600;
+}
+/* ...the "Flat" in the logo */
+.navbar .logo .flat{
+    color: #FFCD43;
+    font-family: 'Lobster', sans-serif;
+    transition: all 0.3s ease;
+}
+/* ...the "Icons" in the logo */
+.navbar .logo .icons{
+	font-family: 'Lobster', sans-serif;
+    color: #D94637;
+    transition: all 0.3s ease;
+}
+/* ...the arrangement of navigation bar contents */
+.navbar .menu li{
+    list-style: none;
+    display: inline-block;
+}
+/* ...the navigation bar contents */
+.navbar .menu li a{
+	font-family: 'Roboto Condensed', sans-serif;
+    display: block;
+    color: #262626;
+    font-size: 18px;
+    font-weight: 500;
+    margin-left: 25px;
+    transition: color 0.3s ease;
+}
+/* ...the navigation bar contents when hovered over*/
+.navbar .menu li a:hover{
+    color: #FFCD43;
+}
+/* ...the navigation bar contents when scrolling */
+.navbar.sticky .menu li a{
+    color: White;
+}
+/* ...the navigation bar contents when hovered over when scrolling */
+.navbar.sticky .menu li a:hover{
+    color: #fff;
+}
+
+/* MENU AND SCROLL UP BUTTON */
+/* the style of... */
+/* ...the hamburger menu button in the navigation bar when the window is resized (i.e., width is decreased) */
+.menu-btn{
+    color: #fff;
+    font-size: 23px;
+    cursor: pointer;
+    display: none;
+}
+/* ...the scroll up button that will return the user back to the homepage when clicked */
+.scroll-up-btn{
+    position: fixed;
+    height: 45px;
+    width: 42px;
+    background: #262626;
+    right: 30px;
+    bottom: 10px;
+    text-align: center;
+    line-height: 45px;
+    color: White;
+    z-index: 9999;
+    font-size: 30px;
+    border-radius: 6px;
+    border-bottom-width: 2px;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+/* ...the scroll up button that appears when user is at the lower sections of the website */
+.scroll-up-btn.show{
+    bottom: 30px;
+    opacity: 1;
+    pointer-events: auto;
+}
+/* ...the scroll up button when hovered over*/
+.scroll-up-btn:hover{
+    filter: brightness(90%);
+}
+
+/* RESPONSIVE MEDIA QUERY FOR THE NAVIGATION BAR */
+@media (max-width: 991px) {
+    .max-width{
+        padding: 0 50px;
+    }
+}
+@media (max-width: 947px){
+    .menu-btn{
+        display: block;
+        z-index: 999;
+    }
+    .menu-btn i.active:before{
+        content: "\f00d";
+    }
+    .navbar .menu{
+        position: fixed;
+        height: 100vh;
+        width: 100%;
+        left: -100%;
+        top: 0;
+        background: #111;
+        text-align: center;
+        padding-top: 80px;
+        transition: all 0.3s ease;
+    }
+    .navbar .menu.active{
+        left: 0;
+    }
+    .navbar .menu li{
+        display: block;
+    }
+    .navbar .menu li a{
+        display: inline-block;
+        margin: 20px 0;
+        font-size: 25px;
+    }
+    .max-width{
+        max-width: 930px;
+    }
+}
+
+@media (max-width: 690px) {
+    .max-width{
+        padding: 0 23px;
+    }
+}
+
+@media (max-width: 500px) {
+    .scroll-up-btn{
+        right: 15px;
+        bottom: 15px;
+        height: 38px;
+        width: 35px;
+        font-size: 23px;
+        line-height: 38px;
+    }
+}
+
+
+/* NAVIGATION BAR OF THE GALLERY */
+/* NOTE: navigation bar here means the gallery's navigation bar (categories) */
+/* the style of... */
+/* ...the area of the navigation bar */
+.wrapper{
+	padding-top: 150px;
+	max-width: 100%;
+}
+/* ...the navigation bar */
+.wrapper .nav-bar{
+	display: flex;
+	justify-content: center;
+}
+/* ...the navigation bar items (buttons) */
+.nav-bar .items{
+	display: flex;
+	max-width: 720px;
+	width: 100%;
+	justify-content: space-between;
+}
+/* ...the text inside the navigation bar items */
+.nav-bar .items .item{
+	padding: 7px 25px;
+	font-family: 'Roboto Condensed', sans-serif;
+	font-size: 20px;
+	font-weight: 500;
+	color: #D94637;
+	border: 2px solid #D94637;
+	border-radius: 50px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+/* ...the text inside the navigation bar items when hovered over and clicked */
+.nav-bar .items .active,
+.nav-bar .items .item:hover{
+	color: White;
+	background: #D94637;
+}
+/* ...the area of the images; the gallery */
+.gallery{
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 30px;
+}
+/* ...the individual image boxes */
+.gallery .image{
+	padding: 7px;
+	width: calc(100% / 4);
+}
+/* ...the images when hidden */
+.gallery .image.hide{
+	display: none;
+}
+/* ...the images when shown */
+.gallery .image.show{
+	animation: animate 0.4s ease;
+}
+/* ...the transition when switching between categories */
+@keyframes animate{
+	0%{
+		transform: scale(0.5);
+	}
+	100%{
+		transform: scale(1);
+	}
+}
+/* ...the individual images */
+.gallery .image span{
+	display: flex;
+	width: 100%;
+	overflow: hidden;
+}
+.gallery .image img{
+	width: 100%;
+	vertical-align: middle;
+	transition: all 0.3s ease;
+}
+.gallery .image:hover img{
+	transform: scale(1.1);
+}
+/* ...the image when clicked; the preview */
+.preview-box{
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) scale(0.9);
+	background: #fff;
+	max-width: 500px;
+	width: 100%;
+	z-index: 9999;
+	opacity: 0;
+	pointer-events: none;
+	border-radius: 3px;
+	padding: 0 5px 5px 5px;
+	box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+}
+.preview-box.show{
+	opacity: 1;
+	pointer-events: auto;
+	transform: translate(-50%, -50%) scale(1);
+	transition:  all 0.3s ease;
+}
+/* ...the arrangement of the image name and x button */
+.preview-box .details{
+	display: flex;
+	align-items: center;
+	padding: 13px 15px 13px 10px;
+	justify-content: space-between;
+}
+/* ...the image name */
+.preview-box .details .title{
+	display: flex;
+	font-size: 18px;
+	font-weight: 400;
+}
+.details .title p{
+	margin-left: 5px;
+	font-weight: 500;
+}
+/* ...the x button */
+.details .icon{
+	color: #007bff;
+	font-size: 20px;
+	cursor: pointer;
+}
+/* additional stylings for the preview box */
+.preview-box .image-box{
+	display: flex;
+	width: 100%;
+}
+.image-box img{
+	width: 100%;
+	border-radius: 0 0 3px 3px;
+}
+.shadow{
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 2;
+	display: none;
+	background: rgba(0,0,0,0.4);
+}
+.shadow.show{
+	display: block;
+}
+
+/* RESPONSIVE MEDIA QUERY FOR THE GALLERY */
+@media(max-width: 1000px){
+	.gallery .image{
+		width: calc(100% / 3);
+	}
+}
+@media(max-width: 800px){
+	.gallery .image{
+		width: calc(100% / 2);
+	}
+}
+@media(max-width: 700px){
+	.nav-bar .items{
+		max-width: 600px;
+	}
+	.nav-bar .items .item{
+		padding: 7px 15px;
+	}
+}
+@media(max-width: 600px){
+	.nav-bar .items{
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	.nav-bar .items .item{
+		margin: 5px;
+	}
+	.gallery .image{
+		width: 10;
+	}
+}
